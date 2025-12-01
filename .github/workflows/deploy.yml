@@ -2,7 +2,7 @@ name: Deploy Azure Function App (.NET Isolated)
 
 on:
   push:
-    branches: [ main ]  # Trigger on pushes to main
+    branches: [ main ]
 
 jobs:
   build-and-deploy:
@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to Azure Function App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: IntegrationToMySQL   # Your Function App name
+          app-name: IntegrationToMySQL
           slot-name: production
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
           package: ./function.zip
