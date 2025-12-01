@@ -1,9 +1,8 @@
 
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Azure.Functions.Worker;
-using Azure.Functions.Worker.Extensions.Http;
+// IMPORTANT: use Microsoft.Azure.Functions.Worker
+using Microsoft.Azure.Functions.Worker;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
