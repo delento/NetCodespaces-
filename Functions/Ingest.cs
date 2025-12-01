@@ -1,10 +1,10 @@
 
 using System.Net;
-using Azure.Functions.Worker;
-using Azure.Functions.Worker.Http;
+using System.Text.Json;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using MySqlConnector;
-using System.Text.Json;
 
 public class Ingest
 {
@@ -19,17 +19,16 @@ public class Ingest
         {
             var body = await new StreamReader(req.Body).ReadToEndAsync();
             var json = JsonDocument.Parse(body).RootElement;
-
             var deviceId = json.GetProperty("id").GetString();
             var type = json.GetProperty("type").GetString();
             var dataArray = json.GetProperty("data").EnumerateArray();
 
             // MySQL connection string
             var host = Environment.GetEnvironmentVariable("MYSQL_HOST");
-            var db = Environment.GetEnvironmentVariable("MYSQL_DB");
+            var db   = Environment.GetEnvironmentVariable("MYSQL_DB");
             var user = Environment.GetEnvironmentVariable("MYSQL_USER");
-            var pwd = Environment.GetEnvironmentVariable("MYSQL_PASSWORD");
-            var cs = $"Server={host};Database={db};User ID={user};Password={pwd};SslMode=Required;";
+            var pwd  = Environment.GetEnvironmentVariable("MYSQL_PASSWORD");
+            var cs   = $"Server={host};Database={db};User ID={user};Password={pwd};SslMode=Required;";
 
             using var conn = new MySqlConnection(cs);
             await conn.OpenAsync();
@@ -65,9 +64,11 @@ public class Ingest
                 else if (type == "meterInfo")
                 {
                     var ts = ConvertToSGTime(item.GetProperty("timeStamp").GetInt64());
-                    var cmd = new MySqlCommand(@"INSERT INTO meterinfo 
+                    var cmd = new MySqlCommand(@"
+                        INSERT INTO meterinfo
                         (id, Date, imei, firmwareVersion, sn, nominalBatteryCapacity, meterModel, firmwareUpdateDateTime, latencyResponse, battPercentage, rssi, dot)
                         VALUES (@id,@dt,@imei,@fw,@sn,@cap,@model,@fwdate,@lat,@batt,@rssi,@dot)", conn);
+
                     cmd.Parameters.AddWithValue("@id", deviceId);
                     cmd.Parameters.AddWithValue("@dt", ts);
                     cmd.Parameters.AddWithValue("@imei", item.GetProperty("imei").GetString());
