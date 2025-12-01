@@ -1,8 +1,7 @@
-
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
-// IMPORTANT: use Microsoft.Azure.Functions.Worker
-using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker; // ✅ Correct namespace
+
 
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
