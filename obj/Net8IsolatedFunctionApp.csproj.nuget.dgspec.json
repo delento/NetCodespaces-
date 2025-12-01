@@ -45,19 +45,19 @@
           "dependencies": {
             "Microsoft.Azure.Functions.Worker": {
               "target": "Package",
-              "version": "[1.16.0, )"
+              "version": "[1.21.1, )"
             },
             "Microsoft.Azure.Functions.Worker.Extensions.Http": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[3.1.1, )"
             },
             "Microsoft.Azure.Functions.Worker.Sdk": {
               "target": "Package",
-              "version": "[1.16.0, )"
+              "version": "[1.17.5, )"
             },
             "MySqlConnector": {
               "target": "Package",
-              "version": "[2.5.0, )"
+              "version": "[2.4.0, )"
             }
           },
           "imports": [

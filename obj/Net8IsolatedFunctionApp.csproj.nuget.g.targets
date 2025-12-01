@@ -2,6 +2,6 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.logging.abstractions/8.0.2/buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.logging.abstractions/8.0.2/buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.azure.functions.worker.sdk/1.16.0/build/Microsoft.Azure.Functions.Worker.Sdk.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.azure.functions.worker.sdk/1.16.0/build/Microsoft.Azure.Functions.Worker.Sdk.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.azure.functions.worker.sdk/1.18.0/build/Microsoft.Azure.Functions.Worker.Sdk.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.azure.functions.worker.sdk/1.18.0/build/Microsoft.Azure.Functions.Worker.Sdk.targets')" />
   </ImportGroup>
 </Project>
