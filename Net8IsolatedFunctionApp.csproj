@@ -10,7 +10,7 @@
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.16.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.0" OutputItemType="Analyzer" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.1.0" />
-    <PackageReference Include="MySqlConnector" Version="2.3.3" />
+    <PackageReference Include="MySqlConnector" Version="2.5.0" />
   </ItemGroup>
 
 </Project>
