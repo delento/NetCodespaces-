@@ -8,9 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Core Azure Functions Worker for .NET isolated -->
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.1" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.17.5" OutputItemType="Analyzer" />
+    <!-- HTTP Trigger support -->
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.1.1" />
+    <!-- MySQL client -->
     <PackageReference Include="MySqlConnector" Version="2.4.0" />
   </ItemGroup>
 </Project>
